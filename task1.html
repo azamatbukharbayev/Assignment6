@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment #6: Task 1 — Selector Detective | Azamat Bukharbayev</title>
+  <link rel="stylesheet" href="css/task1.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    
+    <!-- Page Header -->
+    <header class="main-header">
+      <h1>Assignment #6: jQuery Selectors, Effects & Animations</h1>
+      <p class="subtitle">Task 1 — Selector Detective &bull; Student: Azamat Bukharbayev (IT-2510)</p>
+      <nav class="nav-links" aria-label="Task navigation">
+        <a href="task1.html" class="active">Task 1: Selector Detective</a>
+        <a href="task2.html">Task 2: The Party in Motion</a>
+      </nav>
+    </header>
+
+    <!-- Control Panel: 20 Cases -->
+    <section class="panel-section" aria-label="Detective Cases Panel">
+      <div class="panel-header">
+        <h2>🔍 Detective Investigation Cases (1–20)</h2>
+        <button id="btnResetParty" class="reset-btn" type="button">🔄 Reset Party</button>
+      </div>
+
+      <div class="cases-grid">
+        <button id="btnCase1" class="case-btn" type="button"><span class="case-number">1</span> Who is in the hall?</button>
+        <button id="btnCase2" class="case-btn" type="button"><span class="case-number">2</span> Dressed in yellow or purple?</button>
+        <button id="btnCase3" class="case-btn" type="button"><span class="case-number">3</span> AITU students upstairs?</button>
+        <button id="btnCase4" class="case-btn" type="button"><span class="case-number">4</span> Has glasses or a bag?</button>
+        <button id="btnCase5" class="case-btn" type="button"><span class="case-number">5</span> Came with nothing at all?</button>
+        <button id="btnCase6" class="case-btn" type="button"><span class="case-number">6</span> Has a phone but no bag?</button>
+        <button id="btnCase7" class="case-btn" type="button"><span class="case-number">7</span> Arrived 20:30–21:00 (inc.)?</button>
+        <button id="btnCase8" class="case-btn" type="button"><span class="case-number">8</span> Arrived &gt; 21:00 &amp; not AITU?</button>
+        <button id="btnCase9" class="case-btn" type="button"><span class="case-number">9</span> Right next to Askar?</button>
+        <button id="btnCase10" class="case-btn" type="button"><span class="case-number">10</span> Stands last in each room?</button>
+        <button id="btnCase11" class="case-btn" type="button"><span class="case-number">11</span> Stands third in each room?</button>
+        <button id="btnCase12" class="case-btn" type="button"><span class="case-number">12</span> Stands after Timur?</button>
+        <button id="btnCase13" class="case-btn" type="button"><span class="case-number">13</span> Right before someone in black?</button>
+        <button id="btnCase14" class="case-btn" type="button"><span class="case-number">14</span> In which room is Aruzhan?</button>
+        <button id="btnCase15" class="case-btn" type="button"><span class="case-number">15</span> Rooms with &lt; 6 guests?</button>
+        <button id="btnCase16" class="case-btn" type="button"><span class="case-number">16</span> Cup present, but no glasses?</button>
+        <button id="btnCase17" class="case-btn" type="button"><span class="case-number">17</span> Came first to each room?</button>
+        <button id="btnCase18" class="case-btn" type="button"><span class="case-number">18</span> Miras joins Askar and Inkar</button>
+        <button id="btnCase19" class="case-btn" type="button"><span class="case-number">19</span> Natasha leaves the party</button>
+        <button id="btnCase20" class="case-btn" type="button"><span class="case-number">20</span> 🍰 Who took the cake?</button>
+      </div>
+    </section>
+
+    <!-- Investigation Result Banner -->
+    <div id="resultBanner" class="result-banner" aria-live="polite">
+      <div class="result-title-row">
+        <span id="resultCaseNum" class="result-heading">Ready</span>
+        <span id="resultCount" class="result-count-badge">0</span>
+      </div>
+      <div id="resultQuestion" class="result-query-text">Select any case above to begin detective investigation.</div>
+      <div><code id="resultChainCode" class="result-chain-code">$(".guest-card")</code></div>
+      <div id="resultNames" class="result-names-list">Click a button to highlight matches, trigger jump animation, and display findings.</div>
+    </div>
+
+    <!-- The Party House -->
+    <main class="house-wrapper" aria-label="The Party House">
+      
+      <!-- Roof & Attic Header -->
+      <div class="house-roof">
+        <div class="chimney"><div class="chimney-cap"></div></div>
+        <div class="party-banner-plaque">The Party, 19:30 – 22:30</div>
+      </div>
+
+      <!-- FLOOR 2 -->
+      <section class="floor-section" id="floor-2" data-floor="2" aria-label="Floor 2">
+        <div class="floor-label-sidebar">FLOOR 2</div>
+        <div class="floor-rooms-container">
+          
+          <!-- Balcony -->
+          <div class="room" id="room-balcony" data-room="balcony" data-room-name="Balcony" data-floor="2">
+            <div class="room-header">
+              <span class="room-title">Balcony</span>
+              <span class="room-badge room-count-badge">4 guests</span>
+            </div>
+            <div class="guests-list" id="list-balcony"></div>
+          </div>
+
+          <!-- Hall -->
+          <div class="room" id="room-hall" data-room="hall" data-room-name="Hall" data-floor="2">
+            <div class="room-header">
+              <span class="room-title">Hall</span>
+              <span class="room-badge room-count-badge">6 guests</span>
+            </div>
+            <div class="guests-list" id="list-hall"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FLOOR 1 -->
+      <section class="floor-section" id="floor-1" data-floor="1" aria-label="Floor 1">
+        <div class="floor-label-sidebar">FLOOR 1</div>
+        <div class="floor-rooms-container">
+          
+          <!-- Kitchen -->
+          <div class="room" id="room-kitchen" data-room="kitchen" data-room-name="Kitchen" data-floor="1">
+            <div class="room-header">
+              <span class="room-title">Kitchen</span>
+              <span class="room-badge room-count-badge">6 guests</span>
+            </div>
+            <div class="guests-list" id="list-kitchen"></div>
+          </div>
+
+          <!-- Living Room -->
+          <div class="room" id="room-living-room" data-room="living-room" data-room-name="Living room" data-floor="1">
+            <div class="room-header">
+              <span class="room-title">Living room</span>
+              <span class="room-badge room-count-badge">5 guests</span>
+            </div>
+            <div class="guests-list" id="list-living-room"></div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Legend -->
+    <footer class="legend-section" aria-label="Illustration Legend">
+      <div class="legend-group">
+        <span class="legend-group-title">Clothing color:</span>
+        <div class="color-dots">
+          <span class="dot dot-red" title="Red"></span>
+          <span class="dot dot-blue" title="Blue"></span>
+          <span class="dot dot-green" title="Green"></span>
+          <span class="dot dot-yellow" title="Yellow"></span>
+          <span class="dot dot-black" title="Black"></span>
+          <span class="dot dot-purple" title="Purple"></span>
+        </div>
+      </div>
+
+      <div class="legend-items-list">
+        <span class="legend-item"><span class="item-icon">📱</span> Phone</span>
+        <span class="legend-item"><span class="item-icon">👓</span> Glasses</span>
+        <span class="legend-item"><span class="item-icon">👜</span> Bag</span>
+        <span class="legend-item"><span class="item-icon">☕</span> Cup</span>
+        <span class="legend-item"><span class="item-icon">🍰</span> Cake crumbs</span>
+      </div>
+
+      <div class="legend-group">
+        <span class="legend-item">⏱️ Arrival time</span>
+        <span class="legend-item">🎓 AITU student</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- External JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/task1.js"></script>
+</body>
+</html>

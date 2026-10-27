@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment #6 — jQuery (Selectors, Effects, Animations) | Azamat Bukharbayev</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --slate-900: #0f172a;
+      --slate-600: #475569;
+      --slate-100: #f1f5f9;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--slate-100);
+      color: var(--slate-900);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .hub-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      border: 1px solid #cbd5e1;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    .meta-tag {
+      font-size: 14px;
+      color: var(--slate-600);
+      margin-bottom: 24px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 28px 0;
+    }
+    .task-card {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+    }
+    .task-card:hover {
+      border-color: var(--primary);
+      background-color: #eff6ff;
+    }
+    .task-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+    .task-desc {
+      font-size: 13.5px;
+      color: var(--slate-600);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .task-btn {
+      display: inline-block;
+      text-align: center;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+    .spec-list {
+      background: #fdfaf6;
+      border-left: 4px solid #d97706;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 24px;
+      font-size: 13px;
+    }
+    .spec-list ul {
+      margin-left: 18px;
+      margin-top: 6px;
+    }
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .hub-container {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <h1>Assignment #6: jQuery Selectors, Effects & Animations</h1>
+    <div class="meta-tag">
+      <strong>Student:</strong> Azamat Bukharbayev &bull; 
+      <strong>Group:</strong> IT-2510 &bull; 
+      <strong>University:</strong> Astana IT University (AITU)
+    </div>
+
+    <p>This repository provides a complete, robust, and academically defended implementation of Assignment #6 for the Web Technologies 1 (Front End) course.</p>
+
+    <div class="cards-grid">
+      <a href="task1.html" class="task-card">
+        <div>
+          <div class="task-title">🔍 Task 1: Selector Detective</div>
+          <div class="task-desc">
+            Complete reconstruction of the 4-room birthday party house with 21 guests. Includes all 20 functional jQuery selector detective cases, one-time jump animations, and DOM query result reporting.
+          </div>
+        </div>
+        <span class="task-btn">Open Task 1 &rarr;</span>
+      </a>
+
+      <a href="task2.html" class="task-card">
+        <div>
+          <div class="task-title">✨ Task 2: The Party in Motion</div>
+          <div class="task-desc">
+            Independent, mutable copy of the party house featuring jQuery effects: Spotlight &amp; Clear (fadeTo), expanding guest detail cards, cross-house flying guest transfers, and chronological positional sorting.
+          </div>
+        </div>
+        <span class="task-btn">Open Task 2 &rarr;</span>
+      </a>
+    </div>
+
+    <div class="spec-list">
+      <strong>Core Technical Constraints &amp; Rules Followed:</strong>
+      <ul>
+        <li>jQuery 3.7.1 is the <strong>only</strong> JavaScript library used (no Bootstrap, React, Vue, GSAP, etc.).</li>
+        <li><strong>Zero CSS transitions</strong> and <strong>zero CSS keyframes</strong> across the entire codebase.</li>
+        <li>All animated motion implemented strictly via jQuery effects (<code>fadeIn</code>, <code>fadeOut</code>, <code>fadeTo</code>, <code>animate</code>).</li>
+        <li>Clean separation of concerns with independent HTML, CSS, and JS files for each task.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
